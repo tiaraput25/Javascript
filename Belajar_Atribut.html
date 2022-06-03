@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Javascript</title>
+     <style>
+        .hijau{
+            background: blueviolet;
+        }
+
+        .black{
+            border: 2px solid black;
+        }
+    </style>
+    </head>
+    <body>
+        <h1> Belajar DOM Javascript</h1>
+        <img src="Panda.png" width=300 id="gambar" class="black">
+        <br>
+
+        <input type="text" value="Nama" id="input">
+        <input type="Submit" id="Submit">
+       Namanya adalah <span id="p1"></span>
+
+        <script>
+            var img = document.getElementById('gambar');
+            img.width = 400;
+
+        //img.setAttribute('class', 'hijau');
+            img.className += ' hijau';
+
+            var input = document.getElementById('input');
+            input.value = "Nama Lengkap";
+
+            input.style.border = '3px solid yellow';
+            input.style.backgroundColor = 'red';
+
+        //---------event--------
+        function berubah(){
+            img.style.backgroundColor = 'red';
+        }
+
+        input.onclick = berubah;
+
+        function berubah2(){
+            input.style.backgroundColor ='yellow';
+        }
+
+        input.addEventListener('mouseenter', berubah2);
+
+    input.addEventListener('mouseleave', function(){
+        input.style.backgroundColor ='blue';
+    });
+
+    var submit = document.getElementById('Submit');
+    var span = document.getElementById('p1'); 
+
+    submit.onclick = function(){
+        var text = input.value;
+        span.innerHTML = text;
+    };
+        </script>
+
+    </body>
+</html>
